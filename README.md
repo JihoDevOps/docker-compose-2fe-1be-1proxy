@@ -1,0 +1,1 @@
+> 일단 `vue.config.js`에서 `publicPath`는 빼는 게 맞는 것 같다.

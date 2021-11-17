@@ -1,0 +1,29 @@
+version: "2.4"
+
+services:
+
+  alpha:
+    container_name: alpha
+    build:
+      dockerfile: Dockerfile
+      context: ./alpha
+    stdin_open: true
+
+  beta:
+    container_name: beta
+    build:
+      dockerfile: Dockerfile
+      context: ./beta
+    stdin_open: true
+
+  proxy:
+    container_name: proxy
+    build:
+      dockerfile: Dockerfile
+      context: ./proxy
+    restart: always
+    ports:
+      - "8080:80"
+    links:
+      - alpha
+      - beta
